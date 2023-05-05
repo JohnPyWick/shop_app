@@ -30,24 +30,20 @@ class _ShopPageState extends State<ShopPage> {
         builder: (context, value, child) => Column(
               children: [
                 Container(
-                  padding: EdgeInsets.all(12),
-                  margin: EdgeInsets.symmetric(horizontal: 25),
                   decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(8)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Search',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Icon(
-                        Icons.search,
-                        color: Colors.grey,
-                      )
-                    ],
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.grey[100],
                   ),
+                  height: 40,
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  margin: EdgeInsets.symmetric(horizontal: 25.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(Icons.search),
+                      Text('Search'),
+                    ],
+                  )
                 ),
                 const SizedBox(height: 10),
                 Expanded(

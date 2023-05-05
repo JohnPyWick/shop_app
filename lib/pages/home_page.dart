@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/pages/about_page.dart';
 import 'package:shop_app/pages/cart_page.dart';
 import 'package:shop_app/pages/shop_page.dart';
 import '../components/bottom_nav_bar.dart';
@@ -51,12 +52,14 @@ class _HomePageState extends State<HomePage> {
             Column(
               children: [
                 DrawerHeader(
-                  child:
-                  Image.asset('lib/images/shopflulogo.png', color: Colors.white),
+                  child: Image.asset('lib/images/shopflulogo.png',
+                      color: Colors.white),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Divider(color: Colors.grey[800],),
+                  child: Divider(
+                    color: Colors.grey[800],
+                  ),
                 ),
                 const Padding(
                   padding: EdgeInsets.only(left: 25.0),
@@ -65,17 +68,29 @@ class _HomePageState extends State<HomePage> {
                       Icons.home,
                       color: Colors.white,
                     ),
-                    title: Text('Home',style: TextStyle(color: Colors.white),),
+                    title: Text(
+                      'Home',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 25.0),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.info,
-                      color: Colors.white,
+                GestureDetector(
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AboutPage())),
+                  child: Container(
+                    child: const Padding(
+                      padding: EdgeInsets.only(left: 25.0),
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.info,
+                          color: Colors.white,
+                        ),
+                        title: Text(
+                          'About',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
                     ),
-                    title: Text('About',style: TextStyle(color: Colors.white),),
                   ),
                 ),
               ],
@@ -87,7 +102,10 @@ class _HomePageState extends State<HomePage> {
                   Icons.logout,
                   color: Colors.white,
                 ),
-                title: Text('Logout',style: TextStyle(color: Colors.white),),
+                title: Text(
+                  'Logout',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ),
           ],
@@ -97,5 +115,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-

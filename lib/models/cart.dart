@@ -19,7 +19,7 @@ class Cart extends ChangeNotifier {
         name: 'Iphone',
         price: '999',
         description: 'Best ever',
-        imagePath: 'lib/images/iphun.jpg'),
+        imagePath: 'lib/images/iphone.jpg'),
     Product(
         name: 'Ultraboost',
         price: '150',
