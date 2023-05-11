@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/pages/about_page.dart';
+import 'package:shop_app/pages/account_details.dart';
 import 'package:shop_app/pages/cart_page.dart';
 import 'package:shop_app/pages/shop_page.dart';
 import '../components/bottom_nav_bar.dart';
@@ -67,16 +68,22 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.grey[800],
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 25.0),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.home,
-                      color: Colors.white,
-                    ),
-                    title: Text(
-                      'Home',
-                      style: TextStyle(color: Colors.white),
+                GestureDetector(
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AccountPage())),
+                  child: Container(
+                    child: const Padding(
+                      padding: EdgeInsets.only(left: 25.0),
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.account_box,
+                          color: Colors.white,
+                        ),
+                        title: Text(
+                          'My Account',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
                     ),
                   ),
                 ),
