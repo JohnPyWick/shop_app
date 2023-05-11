@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_app/components/my_button.dart';
 import 'package:shop_app/components/my_textfield.dart';
 
 import 'home_page.dart';
@@ -6,9 +8,15 @@ import 'home_page.dart';
 class IntroPage extends StatelessWidget {
   IntroPage({Key? key}) : super(key: key);
 
-  final usernameController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+  void signUserIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +29,7 @@ class IntroPage extends StatelessWidget {
                 const SizedBox(
                   height: 50,
                 ),
-                Icon(
+                const Icon(
                   Icons.lock,
                   size: 100,
                 ),
@@ -36,7 +44,7 @@ class IntroPage extends StatelessWidget {
                   height: 25,
                 ),
                 MyTextField(
-                  controller: usernameController,
+                  controller: emailController,
                   hintText: 'Email',
                   obscureText: false,
                 ),
@@ -66,27 +74,7 @@ class IntroPage extends StatelessWidget {
                 const SizedBox(
                   height: 25,
                 ),
-                GestureDetector(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomePage())),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: Colors.grey[900],
-                    ),
-                    padding: const EdgeInsets.all(25),
-                    margin: EdgeInsets.symmetric(horizontal: 25),
-                    child: const Center(
-                      child: Text(
-                        'Sign In',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                ),
+                MyButton(onTap: signUserIn,),
                 const SizedBox(
                   height: 50,
                 ),

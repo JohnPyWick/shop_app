@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/pages/about_page.dart';
 import 'package:shop_app/pages/cart_page.dart';
@@ -7,12 +8,17 @@ import '../components/bottom_nav_bar.dart';
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
+  }
 
   void navigateBottombar(int index) {
     setState(() {
@@ -76,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 GestureDetector(
                   onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => AboutPage())),
+                      MaterialPageRoute(builder: (context) => const AboutPage())),
                   child: Container(
                     child: const Padding(
                       padding: EdgeInsets.only(left: 25.0),
@@ -95,16 +101,21 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 25.0),
-              child: ListTile(
-                leading: Icon(
-                  Icons.logout,
-                  color: Colors.white,
-                ),
-                title: Text(
-                  'Logout',
-                  style: TextStyle(color: Colors.white),
+            GestureDetector(
+              onTap: signUserOut,
+              child: Container(
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 25.0),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.info,
+                      color: Colors.white,
+                    ),
+                    title: Text(
+                      'Logout',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
                 ),
               ),
             ),

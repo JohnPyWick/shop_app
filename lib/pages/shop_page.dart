@@ -17,7 +17,7 @@ class _ShopPageState extends State<ShopPage> {
 
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (context) => const AlertDialog(
         title: Text('Successfully Added'),
         content: Text('Check your Cart'),
       ),
@@ -35,13 +35,13 @@ class _ShopPageState extends State<ShopPage> {
                     color: Colors.grey[100],
                   ),
                   height: 40,
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  margin: EdgeInsets.symmetric(horizontal: 25.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  margin: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Icon(Icons.search),
-                      Text('Search'),
+                      const Icon(Icons.search),
+                      const Text('Search'),
                     ],
                   )
                 ),
@@ -59,7 +59,7 @@ class _ShopPageState extends State<ShopPage> {
                     },
                   ),
                 ),
-                Padding(
+                const Padding(
                     padding: EdgeInsets.only(left: 20, right: 20, top: 15),
                     child: Divider(color: Colors.white))
               ],

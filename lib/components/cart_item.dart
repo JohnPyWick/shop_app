@@ -29,7 +29,7 @@ class _CartItemState extends State<CartItem> {
         leading: Image.asset(widget.product.imagePath),
         title: Text(widget.product.name),
         subtitle: Text('\$'+widget.product.price),
-        trailing: IconButton(icon: Icon(Icons.delete),onPressed: removeItemFromCart,),
+        trailing: IconButton(icon: const Icon(Icons.delete),onPressed: removeItemFromCart,),
       ),
     );
   }
