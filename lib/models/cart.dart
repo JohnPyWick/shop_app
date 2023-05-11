@@ -45,4 +45,9 @@ class Cart extends ChangeNotifier {
     userCart.remove(product);
     notifyListeners();
   }
+
+  void removeallItemsFromCart() {
+    userCart.clear();
+    notifyListeners();
+  }
 }

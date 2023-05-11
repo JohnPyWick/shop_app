@@ -39,9 +39,9 @@ class _ShopPageState extends State<ShopPage> {
                   margin: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const Icon(Icons.search),
-                      const Text('Search'),
+                    children: const [
+                      Icon(Icons.search),
+                      Text('Search'),
                     ],
                   )
                 ),

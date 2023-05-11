@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 
 class AccountPage extends StatelessWidget {
   AccountPage({Key? key}) : super(key: key);
-  
+
   final user = FirebaseAuth.instance.currentUser!;
 
   @override
+
+
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -17,8 +19,17 @@ class AccountPage extends StatelessWidget {
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('Logged in as:  '  + user.email!,
-                style: TextStyle(fontSize: 16),),
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  height: 40,
+                  width: 400,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                      borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: Text('Logged in as:  ${user.email!}',
+                  style: TextStyle(fontSize: 20),),
+                ),
               ),
             )
           ],
@@ -27,3 +38,13 @@ class AccountPage extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
